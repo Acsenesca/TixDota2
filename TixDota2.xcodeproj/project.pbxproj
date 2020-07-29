@@ -13,7 +13,32 @@
 		461514AD24D193A90085EE57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461514AB24D193A90085EE57 /* Main.storyboard */; };
 		461514AF24D193AC0085EE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461514AE24D193AC0085EE57 /* Assets.xcassets */; };
 		461514B224D193AC0085EE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461514B024D193AC0085EE57 /* LaunchScreen.storyboard */; };
+		461514BC24D19E500085EE57 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461514BB24D19E500085EE57 /* Alamofire.framework */; };
+		461514BD24D19E500085EE57 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461514BB24D19E500085EE57 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		461514C124D19E600085EE57 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461514BF24D19E600085EE57 /* Moya.framework */; };
+		461514C224D19E600085EE57 /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461514BF24D19E600085EE57 /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		461514C324D19E600085EE57 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461514C024D19E600085EE57 /* Kingfisher.framework */; };
+		461514C424D19E600085EE57 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461514C024D19E600085EE57 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		461514C924D19E710085EE57 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461514C624D19E710085EE57 /* ReactiveSwift.framework */; };
+		461514CA24D19E710085EE57 /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461514C624D19E710085EE57 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		461514BE24D19E500085EE57 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				461514C224D19E600085EE57 /* Moya.framework in Embed Frameworks */,
+				461514C424D19E600085EE57 /* Kingfisher.framework in Embed Frameworks */,
+				461514CA24D19E710085EE57 /* ReactiveSwift.framework in Embed Frameworks */,
+				461514BD24D19E500085EE57 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		461514A224D193A90085EE57 /* TixDota2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TixDota2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +49,11 @@
 		461514AE24D193AC0085EE57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		461514B124D193AC0085EE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		461514B324D193AC0085EE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		461514BB24D19E500085EE57 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		461514BF24D19E600085EE57 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
+		461514C024D19E600085EE57 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		461514C524D19E710085EE57 /* ReactiveMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMoya.framework; path = Carthage/Build/iOS/ReactiveMoya.framework; sourceTree = "<group>"; };
+		461514C624D19E710085EE57 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +61,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				461514C124D19E600085EE57 /* Moya.framework in Frameworks */,
+				461514C324D19E600085EE57 /* Kingfisher.framework in Frameworks */,
+				461514C924D19E710085EE57 /* ReactiveSwift.framework in Frameworks */,
+				461514BC24D19E500085EE57 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +76,7 @@
 			children = (
 				461514A424D193A90085EE57 /* TixDota2 */,
 				461514A324D193A90085EE57 /* Products */,
+				461514BA24D19E500085EE57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +102,18 @@
 			path = TixDota2;
 			sourceTree = "<group>";
 		};
+		461514BA24D19E500085EE57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				461514C524D19E710085EE57 /* ReactiveMoya.framework */,
+				461514C624D19E710085EE57 /* ReactiveSwift.framework */,
+				461514C024D19E600085EE57 /* Kingfisher.framework */,
+				461514BF24D19E600085EE57 /* Moya.framework */,
+				461514BB24D19E500085EE57 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +124,8 @@
 				4615149E24D193A90085EE57 /* Sources */,
 				4615149F24D193A90085EE57 /* Frameworks */,
 				461514A024D193A90085EE57 /* Resources */,
+				461514B924D19D930085EE57 /* Carthage */,
+				461514BE24D19E500085EE57 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +181,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		461514B924D19D930085EE57 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4615149E24D193A90085EE57 /* Sources */ = {
@@ -286,7 +360,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7PC2NP6GC3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TixDota2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.testflight.TixDota2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -304,7 +383,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7PC2NP6GC3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TixDota2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +396,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.testflight.TixDota2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
