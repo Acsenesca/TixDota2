@@ -98,11 +98,9 @@ class HeroViewController: UIViewController {
 		
 //		setCollectionViewConstraints()
 		
-//		self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
 		self.collectionView.backgroundColor = UIColor.red
 		self.collectionView.showsVerticalScrollIndicator = false
 		self.collectionViewLayout.scrollDirection = .vertical
-//		self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset
 		self.collectionView.register(HeroMainCell.nib(), forCellWithReuseIdentifier: HeroMainCell.identifier())
 	}
 	
@@ -226,5 +224,4 @@ class HeroViewController: UIViewController {
 //						   multiplier: 1,
 //						   constant: -16).isActive = true
 //	}
-
 }
