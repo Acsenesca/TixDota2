@@ -36,6 +36,8 @@
 		4661E6E524D3EA9C00C82059 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6E324D3EA9C00C82059 /* FilterCell.xib */; };
 		4661E6E924D3F2CF00C82059 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661E6E824D3F2CF00C82059 /* FilterView.swift */; };
 		4661E6EB24D3F31600C82059 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6EA24D3F31600C82059 /* FilterView.xib */; };
+		4661E6ED24D4696200C82059 /* HeroDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661E6EC24D4696200C82059 /* HeroDetailView.swift */; };
+		4661E6EF24D4697600C82059 /* HeroDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6EE24D4697600C82059 /* HeroDetailView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +86,8 @@
 		4661E6E324D3EA9C00C82059 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		4661E6E824D3F2CF00C82059 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		4661E6EA24D3F31600C82059 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
+		4661E6EC24D4696200C82059 /* HeroDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailView.swift; sourceTree = "<group>"; };
+		4661E6EE24D4697600C82059 /* HeroDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,8 @@
 				4661E6E324D3EA9C00C82059 /* FilterCell.xib */,
 				4661E6E824D3F2CF00C82059 /* FilterView.swift */,
 				4661E6EA24D3F31600C82059 /* FilterView.xib */,
+				4661E6EC24D4696200C82059 /* HeroDetailView.swift */,
+				4661E6EE24D4697600C82059 /* HeroDetailView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4661E6EB24D3F31600C82059 /* FilterView.xib in Resources */,
+				4661E6EF24D4697600C82059 /* HeroDetailView.xib in Resources */,
 				461514B224D193AC0085EE57 /* LaunchScreen.storyboard in Resources */,
 				4661E6E524D3EA9C00C82059 /* FilterCell.xib in Resources */,
 				461514AF24D193AC0085EE57 /* Assets.xcassets in Resources */,
@@ -302,6 +309,7 @@
 				461514CD24D1AF980085EE57 /* ViewModel.swift in Sources */,
 				461514D124D1B14C0085EE57 /* CollectionViewBindingUtil.swift in Sources */,
 				461514E824D26C3B0085EE57 /* HeroViewController.swift in Sources */,
+				4661E6ED24D4696200C82059 /* HeroDetailView.swift in Sources */,
 				461514A824D193A90085EE57 /* SceneDelegate.swift in Sources */,
 				4661E6E924D3F2CF00C82059 /* FilterView.swift in Sources */,
 				461514D824D25FDE0085EE57 /* APIProvider.swift in Sources */,
