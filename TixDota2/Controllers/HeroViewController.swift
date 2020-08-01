@@ -8,10 +8,33 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class HeroViewModel: ViewModel {
-	init() {
-		
+	var heroes: [Hero]?
+	
+	init() { }
+	
+	func requestListHeroes(completionHandler: @escaping () -> Void) {
+		AF.request(listHeroAPIUrl).responseJSON{ response in
+			switch (response.result) {
+			case .success:
+				if let data = response.data {
+					do {
+						let decoder = JSONDecoder()
+						decoder.keyDecodingStrategy = .convertFromSnakeCase
+						let jsonData = try decoder.decode([Hero].self, from: data)
+						
+						self.heroes = jsonData
+						completionHandler()
+					} catch {
+						print(error.localizedDescription)
+					}
+				}
+			case .failure( let error):
+				print(error)
+			}
+		}
 	}
 }
 
@@ -77,8 +100,10 @@ class HeroViewController: UIViewController {
 		super.viewDidLoad()
 		self.view.backgroundColor = UIColor.primaryColor
 
-		self.bindViewModel()
-		self.configurePotraitView()
+		self.viewModel.requestListHeroes(completionHandler: {
+			self.bindViewModel()
+			self.configurePotraitView()
+		})
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

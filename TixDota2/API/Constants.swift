@@ -8,5 +8,5 @@
 
 import Foundation
 
-let APIUrl = "https://api.opendota.com/api/herostats/"
+let listHeroAPIUrl = "https://api.opendota.com/api/herostats/"
 let imageBaseUrl = "https://api.opendota.com/"
