@@ -7,17 +7,15 @@
 //
 
 import UIKit
-
 import Foundation
-import UIKit
+import Kingfisher
 
 class HeroMainCellModel: ViewModel {
-//	let hero: Hero?
+	let hero: Hero?
 	
-//	init(hero: Hero?) {
-//		self.hero = hero
-//	}
-	init() {}
+	init(hero: Hero?) {
+		self.hero = hero
+	}
 }
 
 class HeroMainCell: UICollectionViewCell, ViewBinding {
@@ -44,11 +42,19 @@ class HeroMainCell: UICollectionViewCell, ViewBinding {
 	}
 	
 	func configureView() {
+		let placeholder = UIImage(named: "pic-default-profilepict")
+		
 		self.layer.cornerRadius = 5
 		self.layer.masksToBounds = true
-		self.heroTitleLabel.text = "halo"
-		self.heroImageView.image = UIImage(named: "ico-love-selected")
 		
+		self.heroTitleLabel.text = self.viewModel?.hero?.localizedName
+		self.heroImageView.kf.indicatorType = .activity
+		
+		if let imageUrl = self.viewModel?.hero?.icon, let url = URL(string: imageBaseUrl + imageUrl) {
+			self.heroImageView.kf.setImage(with: url, placeholder: placeholder)
+		} else {
+			self.heroImageView.image = placeholder
+		}
 	}
 }
 

@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 import Alamofire
+import ReactiveSwift
 
 class HeroViewModel: ViewModel {
-	var heroes: [Hero]?
+	var heroes: MutableProperty<[Hero]?> = MutableProperty(nil)
 	
 	init() { }
 	
@@ -25,7 +26,8 @@ class HeroViewModel: ViewModel {
 						decoder.keyDecodingStrategy = .convertFromSnakeCase
 						let jsonData = try decoder.decode([Hero].self, from: data)
 						
-						self.heroes = jsonData
+						self.heroes.value = jsonData
+						
 						completionHandler()
 					} catch {
 						print(error.localizedDescription)
@@ -40,7 +42,7 @@ class HeroViewModel: ViewModel {
 
 extension HeroViewModel: SectionedCollectionSource, SizeCollectionSource, SelectedCollectionSource {
 	func numberOfCollectionCellAtSection(section: Int) -> Int {
-		return 50
+		return self.heroes.value?.count ?? 0
 	}
 	
 	func collectionCellIdentifierAtIndexPath(indexPath: IndexPath) -> String {
@@ -48,7 +50,7 @@ extension HeroViewModel: SectionedCollectionSource, SizeCollectionSource, Select
 	}
 	
 	func collectionCellModelAtIndexPath(indexPath: IndexPath) -> ViewModel {
-		return HeroMainCellModel()
+		return HeroMainCellModel(hero: self.heroes.value?[indexPath.row])
 	}
 	func cellClassAtIndexPath(indexPath: IndexPath) -> UICollectionViewCell.Type {
 		return HeroMainCell.self
@@ -99,6 +101,7 @@ class HeroViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = UIColor.primaryColor
+		self.edgesForExtendedLayout = []
 
 		self.viewModel.requestListHeroes(completionHandler: {
 			self.bindViewModel()
@@ -138,9 +141,7 @@ class HeroViewController: UIViewController {
 		view.addSubview(self.filterView)
 		view.addSubview(self.collectionView)
 		view.addSubview(self.separatorView)
-		
-		self.edgesForExtendedLayout = []
-		
+				
 		self.configureCollectionView()
 		self.setupPotraitConstraints()
 	}
@@ -162,7 +163,7 @@ class HeroViewController: UIViewController {
 						   toItem: view,
 						   attribute: NSLayoutConstraint.Attribute.left,
 						   multiplier: 1,
-						   constant: 0).isActive = true
+						   constant: 20).isActive = true
 		
 		NSLayoutConstraint(item: filterView,
 						   attribute: NSLayoutConstraint.Attribute.right,
@@ -170,7 +171,7 @@ class HeroViewController: UIViewController {
 						   toItem: view,
 						   attribute: NSLayoutConstraint.Attribute.right,
 						   multiplier: 1,
-						   constant: 0).isActive = true
+						   constant: -10).isActive = true
 		
 		NSLayoutConstraint(item: filterView,
 						   attribute: NSLayoutConstraint.Attribute.bottom,
@@ -178,7 +179,7 @@ class HeroViewController: UIViewController {
 						   toItem: separatorView,
 						   attribute: NSLayoutConstraint.Attribute.top,
 						   multiplier: 1,
-						   constant: 0).isActive = true
+						   constant: -10).isActive = true
 		
 		NSLayoutConstraint(item: filterView,
 						   attribute: NSLayoutConstraint.Attribute.height,

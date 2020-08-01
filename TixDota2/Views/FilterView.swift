@@ -47,7 +47,7 @@ class FilterView: UIView, ViewBinding {
 	override func viewSize() -> CGSize {
 		let width = UIScreen.main.bounds.width
 		
-		return CGSize(width: width, height: 50)
+		return CGSize(width: width, height: 60)
 	}
 	
 	func bindViewModel(viewModel: VM?) {
@@ -62,13 +62,50 @@ class FilterView: UIView, ViewBinding {
 	}
 	
 	fileprivate func configureCollectionView() {
-
 		self.addSubview(self.collectionView)
+		
+		self.setFilterViewConstraints()
 				
-		self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+		self.collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 		self.collectionViewLayout.scrollDirection = .horizontal
 		self.collectionView.backgroundColor = UIColor.clear
 		self.collectionView.isScrollEnabled = true
 		self.collectionView.register(FilterCell.nib(), forCellWithReuseIdentifier: FilterCell.identifier())
+	}
+	
+	fileprivate func setFilterViewConstraints() {
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint(item: collectionView,
+						   attribute: NSLayoutConstraint.Attribute.top,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: self,
+						   attribute: NSLayoutConstraint.Attribute.top,
+						   multiplier: 1,
+						   constant: 10).isActive = true
+		
+		NSLayoutConstraint(item: collectionView,
+						   attribute: NSLayoutConstraint.Attribute.left,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: self,
+						   attribute: NSLayoutConstraint.Attribute.left,
+						   multiplier: 1,
+						   constant: -10).isActive = true
+		
+		NSLayoutConstraint(item: collectionView,
+						   attribute: NSLayoutConstraint.Attribute.right,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: self,
+						   attribute: NSLayoutConstraint.Attribute.right,
+						   multiplier: 1,
+						   constant: 0).isActive = true
+		
+		NSLayoutConstraint(item: collectionView,
+						   attribute: NSLayoutConstraint.Attribute.bottom,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: self,
+						   attribute: NSLayoutConstraint.Attribute.bottom,
+						   multiplier: 1,
+						   constant: 0).isActive = true
 	}
 }
