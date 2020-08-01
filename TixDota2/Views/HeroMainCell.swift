@@ -33,10 +33,10 @@ class HeroMainCell: UICollectionViewCell, ViewBinding {
         // Initialization code
     }
 	
-//	override func viewSize() -> CGSize {
-//		return CGSize(width: UIScreen.main.bounds.width, height: 100)
-//	}
-//	
+	override func viewSize() -> CGSize {
+		return CGSize(width: 100, height: 100)
+	}
+	
 	func bindViewModel(viewModel: VM?) {
 		self.viewModel = viewModel
 		
@@ -44,6 +44,8 @@ class HeroMainCell: UICollectionViewCell, ViewBinding {
 	}
 	
 	func configureView() {
+		self.layer.cornerRadius = 5
+		self.layer.masksToBounds = true
 		self.heroTitleLabel.text = "halo"
 		self.heroImageView.image = UIImage(named: "ico-love-selected")
 		

@@ -44,6 +44,12 @@ class FilterView: UIView, ViewBinding {
 		super.awakeFromNib()
 	}
 	
+	override func viewSize() -> CGSize {
+		let width = UIScreen.main.bounds.width
+		
+		return CGSize(width: width, height: 50)
+	}
+	
 	func bindViewModel(viewModel: VM?) {
 		self.viewModel = viewModel
 		self.backgroundColor = UIColor.primaryColor

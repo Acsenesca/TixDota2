@@ -17,7 +17,7 @@ class HeroViewModel: ViewModel {
 
 extension HeroViewModel: SectionedCollectionSource, SizeCollectionSource, SelectedCollectionSource {
 	func numberOfCollectionCellAtSection(section: Int) -> Int {
-		return 10
+		return 50
 	}
 	
 	func collectionCellIdentifierAtIndexPath(indexPath: IndexPath) -> String {
@@ -32,7 +32,7 @@ extension HeroViewModel: SectionedCollectionSource, SizeCollectionSource, Select
 	}
 	
 	func cellSizeAtIndexPath(indexPath: IndexPath, withCell cell: UICollectionViewCell) -> CGSize {
-		return CGSize(width: 100, height: 100)
+		return cell.viewSize()
 	}
 	
 	func didSelectCellAtIndexPath(collectionView: UICollectionView, indexPath: IndexPath, withCell cell: UICollectionViewCell) {
@@ -75,12 +75,10 @@ class HeroViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .clear
+		self.view.backgroundColor = UIColor.primaryColor
 
 		self.bindViewModel()
-		self.configureView()
-//		self.configureSeparatorView()
-//		self.configureCollectionView()
+		self.configurePotraitView()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -94,66 +92,35 @@ class HeroViewController: UIViewController {
 	}
 	
 	fileprivate func configureCollectionView() {
-		view.addSubview(self.collectionView)
-		
-//		setCollectionViewConstraints()
-		
-		self.collectionView.backgroundColor = UIColor.red
+		self.collectionView.layer.cornerRadius = 5
+		self.collectionView.layer.masksToBounds = true
+		self.collectionView.backgroundColor = UIColor.secondaryColor
 		self.collectionView.showsVerticalScrollIndicator = false
+		self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+		self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset
 		self.collectionViewLayout.scrollDirection = .vertical
+		
 		self.collectionView.register(HeroMainCell.nib(), forCellWithReuseIdentifier: HeroMainCell.identifier())
 	}
 	
-	fileprivate func configureView() {
-		view.addSubview(self.filterView)
-		
-		self.edgesForExtendedLayout = []
-		self.setListHeroViewConstraints()
+	fileprivate func setupPotraitConstraints() {
+		self.setFilterViewConstraints()
+		self.setSeparatorViewConstraints()
+		self.setCollectionViewConstraints()
 	}
 	
-	fileprivate func configureSeparatorView() {
+	fileprivate func configurePotraitView() {
+		view.addSubview(self.filterView)
+		view.addSubview(self.collectionView)
 		view.addSubview(self.separatorView)
 		
-//		setSeparatorViewConstraints()
+		self.edgesForExtendedLayout = []
+		
+		self.configureCollectionView()
+		self.setupPotraitConstraints()
 	}
 	
-//	fileprivate func setSeparatorViewConstraints() {
-//		separatorView.translatesAutoresizingMaskIntoConstraints = false
-//
-//		NSLayoutConstraint(item: separatorView,
-//						   attribute: NSLayoutConstraint.Attribute.bottom,
-//						   relatedBy: NSLayoutConstraint.Relation.equal,
-//						   toItem: collectionView,
-//						   attribute: NSLayoutConstraint.Attribute.top,
-//						   multiplier: 1,
-//						   constant: -16).isActive = true
-//
-//		NSLayoutConstraint(item: separatorView,
-//						   attribute: NSLayoutConstraint.Attribute.left,
-//						   relatedBy: NSLayoutConstraint.Relation.equal,
-//						   toItem: view,
-//						   attribute: NSLayoutConstraint.Attribute.left,
-//						   multiplier: 1,
-//						   constant: 16).isActive = true
-//
-//		NSLayoutConstraint(item: separatorView,
-//						   attribute: NSLayoutConstraint.Attribute.right,
-//						   relatedBy: NSLayoutConstraint.Relation.equal,
-//						   toItem: view,
-//						   attribute: NSLayoutConstraint.Attribute.right,
-//						   multiplier: 1,
-//						   constant: -16).isActive = true
-//
-//		NSLayoutConstraint(item: separatorView,
-//						   attribute: NSLayoutConstraint.Attribute.height,
-//						   relatedBy: NSLayoutConstraint.Relation.equal,
-//						   toItem: nil,
-//						   attribute: NSLayoutConstraint.Attribute.notAnAttribute,
-//						   multiplier: 1,
-//						   constant: 1).isActive = true
-//	}
-	
-	fileprivate func setListHeroViewConstraints() {
+	fileprivate func setFilterViewConstraints() {
 		filterView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint(item: filterView,
@@ -183,45 +150,81 @@ class HeroViewController: UIViewController {
 		NSLayoutConstraint(item: filterView,
 						   attribute: NSLayoutConstraint.Attribute.bottom,
 						   relatedBy: NSLayoutConstraint.Relation.equal,
-						   toItem: view,
+						   toItem: separatorView,
 						   attribute: NSLayoutConstraint.Attribute.top,
 						   multiplier: 1,
-						   constant: 50).isActive = true
-
-//		NSLayoutConstraint(item: filterView,
-//						   attribute: NSLayoutConstraint.Attribute.height,
-//						   relatedBy: NSLayoutConstraint.Relation.equal,
-//						   toItem: nil,
-//						   attribute: NSLayoutConstraint.Attribute.notAnAttribute,
-//						   multiplier: 1,
-//						   constant: filterView.viewSize().height).isActive = true
+						   constant: 0).isActive = true
+		
+		NSLayoutConstraint(item: filterView,
+						   attribute: NSLayoutConstraint.Attribute.height,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: nil,
+						   attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+						   multiplier: 1,
+						   constant: filterView.viewSize().height).isActive = true
 	}
 	
-//	fileprivate func setCollectionViewConstraints() {
-//		collectionView.translatesAutoresizingMaskIntoConstraints = false
-//
-//		NSLayoutConstraint(item: collectionView,
-//						   attribute: NSLayoutConstraint.Attribute.left,
-//						   relatedBy: NSLayoutConstraint.Relation.equal,
-//						   toItem: view,
-//						   attribute: NSLayoutConstraint.Attribute.left,
-//						   multiplier: 1,
-//						   constant: 16).isActive = true
-//
-//		NSLayoutConstraint(item: collectionView,
-//						   attribute: NSLayoutConstraint.Attribute.right,
-//						   relatedBy: NSLayoutConstraint.Relation.equal,
-//						   toItem: view,
-//						   attribute: NSLayoutConstraint.Attribute.right,
-//						   multiplier: 1,
-//						   constant: -16).isActive = true
-//
-//		NSLayoutConstraint(item: collectionView,
-//						   attribute: NSLayoutConstraint.Attribute.bottom,
-//						   relatedBy: NSLayoutConstraint.Relation.equal,
-//						   toItem: view,
-//						   attribute: NSLayoutConstraint.Attribute.bottom,
-//						   multiplier: 1,
-//						   constant: -16).isActive = true
-//	}
+	fileprivate func setSeparatorViewConstraints() {
+		separatorView.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint(item: separatorView,
+						   attribute: NSLayoutConstraint.Attribute.bottom,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: collectionView,
+						   attribute: NSLayoutConstraint.Attribute.top,
+						   multiplier: 1,
+						   constant: -10).isActive = true
+		
+		NSLayoutConstraint(item: separatorView,
+						   attribute: NSLayoutConstraint.Attribute.left,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: view,
+						   attribute: NSLayoutConstraint.Attribute.left,
+						   multiplier: 1,
+						   constant: 10).isActive = true
+		
+		NSLayoutConstraint(item: separatorView,
+						   attribute: NSLayoutConstraint.Attribute.right,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: view,
+						   attribute: NSLayoutConstraint.Attribute.right,
+						   multiplier: 1,
+						   constant: -10).isActive = true
+		
+		NSLayoutConstraint(item: separatorView,
+						   attribute: NSLayoutConstraint.Attribute.height,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: nil,
+						   attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+						   multiplier: 1,
+						   constant: 3).isActive = true
+	}
+	
+	fileprivate func setCollectionViewConstraints() {
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint(item: collectionView,
+						   attribute: NSLayoutConstraint.Attribute.left,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: view,
+						   attribute: NSLayoutConstraint.Attribute.left,
+						   multiplier: 1,
+						   constant: 10).isActive = true
+		
+		NSLayoutConstraint(item: collectionView,
+						   attribute: NSLayoutConstraint.Attribute.right,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: view,
+						   attribute: NSLayoutConstraint.Attribute.right,
+						   multiplier: 1,
+						   constant: -10).isActive = true
+		
+		NSLayoutConstraint(item: collectionView,
+						   attribute: NSLayoutConstraint.Attribute.bottom,
+						   relatedBy: NSLayoutConstraint.Relation.equal,
+						   toItem: view,
+						   attribute: NSLayoutConstraint.Attribute.bottom,
+						   multiplier: 1,
+						   constant: -30).isActive = true
+	}
 }
