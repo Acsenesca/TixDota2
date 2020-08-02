@@ -13,6 +13,7 @@ import ReactiveSwift
 
 class HeroViewModel: ViewModel {
 	var heroes: MutableProperty<[Hero]?> = MutableProperty(nil)
+	var didSelectHandler: ((Hero) -> Void) = {_ in }
 	
 	init() { }
 	
@@ -34,9 +35,20 @@ class HeroViewModel: ViewModel {
 					}
 				}
 			case .failure( let error):
-				print(error)
+				
+//					if let err = error as? URLError, err.code == .notConnectedToInternet {
+//					   // no internet connection
+				print("AAA", error.responseCode)
+//				   } else {
+//					   // other failures
+//				   }
 			}
 		}
+	}
+	
+	fileprivate func shouldSelectCell(_ indexPath: IndexPath) {
+		guard let hero = self.heroes.value?[indexPath.row] else { return }
+		self.didSelectHandler(hero)
 	}
 }
 
@@ -61,7 +73,7 @@ extension HeroViewModel: SectionedCollectionSource, SizeCollectionSource, Select
 	}
 	
 	func didSelectCellAtIndexPath(collectionView: UICollectionView, indexPath: IndexPath, withCell cell: UICollectionViewCell) {
-//		shouldSelectCell(indexPath)
+		shouldSelectCell(indexPath)
 	}
 }
 
@@ -105,7 +117,7 @@ class HeroViewController: UIViewController {
 
 		self.viewModel.requestListHeroes(completionHandler: {
 			self.bindViewModel()
-			self.configurePotraitView()
+			self.configureView()
 		})
 	}
 	
@@ -117,6 +129,13 @@ class HeroViewController: UIViewController {
 		collectionViewBinding = CollectionViewBindingUtil(source: self.viewModel)
 		collectionViewBinding?.bindFlowDelegateWithCollectionView(collectionView: collectionView)
 		collectionViewBinding?.bindDatasourceWithCollectionView(collectionView: collectionView)
+		
+		viewModel.didSelectHandler = { [weak self] hero -> Void in
+			let viewModel = HeroDetailViewModel(hero: hero)
+			let controller = HeroDetailViewController(viewModel: viewModel)
+			
+			self?.navigationController?.pushViewController(controller, animated: true)
+		}
 	}
 	
 	fileprivate func configureCollectionView() {
@@ -131,19 +150,19 @@ class HeroViewController: UIViewController {
 		self.collectionView.register(HeroMainCell.nib(), forCellWithReuseIdentifier: HeroMainCell.identifier())
 	}
 	
-	fileprivate func setupPotraitConstraints() {
+	fileprivate func setupConstraints() {
 		self.setFilterViewConstraints()
 		self.setSeparatorViewConstraints()
 		self.setCollectionViewConstraints()
 	}
 	
-	fileprivate func configurePotraitView() {
+	fileprivate func configureView() {
 		view.addSubview(self.filterView)
 		view.addSubview(self.collectionView)
 		view.addSubview(self.separatorView)
 				
 		self.configureCollectionView()
-		self.setupPotraitConstraints()
+		self.setupConstraints()
 	}
 	
 	fileprivate func setFilterViewConstraints() {

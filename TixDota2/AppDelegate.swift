@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window = window
 
 			let viewController = HeroViewController(viewModel: HeroViewModel())
-			viewController.title = "ANJIRRRRR"
+			viewController.title = "All"
 
 			let nav = UINavigationController(rootViewController: viewController)
 

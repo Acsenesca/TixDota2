@@ -9,12 +9,13 @@
 import UIKit
 import Foundation
 import Kingfisher
+import ReactiveSwift
 
 class HeroMainCellModel: ViewModel {
-	let hero: Hero?
-	
+	let hero: MutableProperty<Hero?> = MutableProperty(nil)
+
 	init(hero: Hero?) {
-		self.hero = hero
+		self.hero.value = hero
 	}
 }
 
@@ -47,10 +48,12 @@ class HeroMainCell: UICollectionViewCell, ViewBinding {
 		self.layer.cornerRadius = 5
 		self.layer.masksToBounds = true
 		
-		self.heroTitleLabel.text = self.viewModel?.hero?.localizedName
+		guard let hero = self.viewModel?.hero.value else { return }
+		
+		self.heroTitleLabel.text = hero.localizedName
 		self.heroImageView.kf.indicatorType = .activity
 		
-		if let imageUrl = self.viewModel?.hero?.icon, let url = URL(string: imageBaseUrl + imageUrl) {
+		if let imageUrl = hero.icon, let url = URL(string: imageBaseUrl + imageUrl) {
 			self.heroImageView.kf.setImage(with: url, placeholder: placeholder)
 		} else {
 			self.heroImageView.image = placeholder
