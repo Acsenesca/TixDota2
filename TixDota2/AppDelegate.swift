@@ -21,13 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let window = UIWindow(frame: UIScreen.main.bounds)
             self.window = window
 
-			let viewController = HeroViewController(viewModel: HeroViewModel())
-			viewController.title = "All"
+			let vm = HeroViewModel()
+			vm.requestListHeroes(completionHandler: {
+				let viewController = HeroViewController(viewModel: vm)
+			
+				viewController.title = "All"
 
-			let nav = UINavigationController(rootViewController: viewController)
+				let nav = UINavigationController(rootViewController: viewController)
 
-			window.rootViewController = nav
-			window.makeKeyAndVisible()
+				window.rootViewController = nav
+				window.makeKeyAndVisible()
+			})
 		}
 
         return true
