@@ -17,10 +17,11 @@ class HeroViewModel: ViewModel {
 	var didSelectHandler: ((Hero) -> Void) = {_ in }
 	var filterStates: [String] = ["All"]
 	var selectedState: String = "All"
+	var shouldShowAlert: Bool = false
 	
 	init() { }
 	
-	func requestListHeroes(completionHandler: @escaping () -> Void) {
+	func requestListHeroes(completionHandler: @escaping (Bool) -> Void) {
 		AF.request(listHeroAPIUrl).responseJSON{ response in
 			switch (response.result) {
 			case .success:
@@ -35,13 +36,13 @@ class HeroViewModel: ViewModel {
 						let flattenedArray = jsonData.map { ($0.roles ?? []) }.reduce([], +)
 						self.filterStates = self.filterStates + Array(Set(flattenedArray)).sorted()
 
-						completionHandler()
+						completionHandler(false)
 					} catch {
 						print(error.localizedDescription)
 					}
 				}
-			case .failure( let error):
-				print("AAA", error.responseCode)
+			case .failure( _):
+				completionHandler(true)
 			}
 		}
 	}
@@ -142,6 +143,7 @@ class HeroViewController: UIViewController {
 		self.bindViewModel()
 		self.configureView()
 		self.configureNotification()
+		self.configureAlertView()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -180,7 +182,6 @@ class HeroViewController: UIViewController {
 			}
 			
 			self?.viewModel.selectedState = state
-			
 			self?.resetCollectionView()
 		})
 	}
@@ -205,6 +206,15 @@ class HeroViewController: UIViewController {
 				
 		self.configureCollectionView()
 		self.setupConstraints()
+	}
+	
+	fileprivate func configureAlertView() {
+		if self.viewModel.shouldShowAlert {
+			let alert = UIAlertController(title: "Something Went Wrong", message: "Please Check Your Connection. Thank You.", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+		
+			self.present(alert, animated: true, completion: nil)
+		}
 	}
 	
 	fileprivate func setFilterViewConstraints() {

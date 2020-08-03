@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window = window
 
 			let vm = HeroViewModel()
-			vm.requestListHeroes(completionHandler: {
+			vm.requestListHeroes(completionHandler: { showAlert in
+				vm.shouldShowAlert = showAlert
 				let viewController = HeroViewController(viewModel: vm)
 			
 				viewController.title = "All"
