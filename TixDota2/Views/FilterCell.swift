@@ -10,7 +10,10 @@ import UIKit
 
 
 class FilterCellModel: ViewModel {
-	init() {
+	var state: String
+	
+	init(state: String) {
+		self.state = state
 	}
 }
 
@@ -28,12 +31,14 @@ class FilterCell: UICollectionViewCell, ViewBinding {
     }
 	
 	func bindViewModel(viewModel: VM?) {
+		self.viewModel = viewModel
+		
 		self.containerView.backgroundColor = UIColor.secondaryColor
 		self.layer.cornerRadius = 5
 		self.layer.masksToBounds = true
 		
 		self.filterTitleLabel.textColor = .white
 		self.filterTitleLabel.font = UIFont.boldSystemFont(ofSize: 16)
-		self.filterTitleLabel.text = "Tiket.com"
+		self.filterTitleLabel.text = self.viewModel?.state
 	}
 }

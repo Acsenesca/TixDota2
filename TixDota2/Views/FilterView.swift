@@ -9,26 +9,42 @@
 import UIKit
 
 class FilterViewModel: ViewModel {
-
-	init() {
+	var states: [String] = []
+	var didSelectHandler: ((String) -> Void) = {_ in }
+	
+	init(states: [String]) {
+		self.states = states
+	}
+	
+	fileprivate func shouldSelectCell(_ indexPath: IndexPath) {
+		let state = self.states[indexPath.row]
+		self.didSelectHandler(state)
 	}
 }
 
-extension FilterViewModel: SectionedCollectionSource, SizeCollectionSource {
+extension FilterViewModel: SectionedCollectionSource, SizeCollectionSource, SelectedCollectionSource {
 	func numberOfCollectionCellAtSection(section: Int) -> Int {
-		return 10
+		return self.states.count
 	}
+	
 	func collectionCellIdentifierAtIndexPath(indexPath: IndexPath) -> String {
 		return FilterCell.identifier()
 	}
+	
 	func collectionCellModelAtIndexPath(indexPath: IndexPath) -> ViewModel {
-		return FilterCellModel()
+		return FilterCellModel(state: self.states[indexPath.row])
 	}
+	
 	func cellClassAtIndexPath(indexPath: IndexPath) -> UICollectionViewCell.Type {
 		return FilterCell.self
 	}
+	
 	func cellSizeAtIndexPath(indexPath: IndexPath, withCell cell: UICollectionViewCell) -> CGSize {
 		return CGSize(width: 100, height: 40)
+	}
+	
+	func didSelectCellAtIndexPath(collectionView: UICollectionView, indexPath: IndexPath, withCell cell: UICollectionViewCell) {
+		self.shouldSelectCell(indexPath)
 	}
 }
 
@@ -54,7 +70,7 @@ class FilterView: UIView, ViewBinding {
 		self.viewModel = viewModel
 		self.backgroundColor = UIColor.primaryColor
 		
-		collectionViewBinding = CollectionViewBindingUtil(source: self.viewModel ?? FilterViewModel())
+		collectionViewBinding = CollectionViewBindingUtil(source: self.viewModel ?? FilterViewModel(states: []))
 		collectionViewBinding?.bindFlowDelegateWithCollectionView(collectionView: collectionView)
 		collectionViewBinding?.bindDatasourceWithCollectionView(collectionView: collectionView)
 		

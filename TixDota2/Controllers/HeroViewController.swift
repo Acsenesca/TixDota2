@@ -14,6 +14,7 @@ import ReactiveSwift
 class HeroViewModel: ViewModel {
 	var heroes: MutableProperty<[Hero]?> = MutableProperty(nil)
 	var didSelectHandler: ((Hero) -> Void) = {_ in }
+	var filterStates: [String] = ["All"]
 	
 	init() { }
 	
@@ -28,20 +29,17 @@ class HeroViewModel: ViewModel {
 						let jsonData = try decoder.decode([Hero].self, from: data)
 						
 						self.heroes.value = jsonData
-						
+												
+						let flattenedArray = jsonData.map { ($0.roles ?? []) }.reduce([], +)
+						self.filterStates = self.filterStates + Array(Set(flattenedArray)).sorted()
+
 						completionHandler()
 					} catch {
 						print(error.localizedDescription)
 					}
 				}
 			case .failure( let error):
-				
-//					if let err = error as? URLError, err.code == .notConnectedToInternet {
-//					   // no internet connection
 				print("AAA", error.responseCode)
-//				   } else {
-//					   // other failures
-//				   }
 			}
 		}
 	}
@@ -87,7 +85,7 @@ class HeroViewController: UIViewController {
 	private var collectionViewBinding: CollectionViewBindingUtil<HeroViewModel>?
 	
 	lazy var filterView: FilterView = {
-		let viewModel = FilterViewModel()
+		let viewModel = FilterViewModel(states: self.viewModel.filterStates)
 		let view = FilterView.viewFromXib()
 		view.bindViewModel(viewModel: viewModel)
 		
@@ -115,10 +113,8 @@ class HeroViewController: UIViewController {
 		self.view.backgroundColor = UIColor.primaryColor
 		self.edgesForExtendedLayout = []
 
-		self.viewModel.requestListHeroes(completionHandler: {
-			self.bindViewModel()
-			self.configureView()
-		})
+		self.bindViewModel()
+		self.configureView()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

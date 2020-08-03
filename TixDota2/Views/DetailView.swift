@@ -88,7 +88,6 @@ class DetailView: UIView, ViewBinding {
 		
 		self.attributeLabel.text = hero.primaryAttr
 		self.heroNameLabel.text = hero.localizedName
-		self.rolesLabel.text = "halohai"
-		
+		self.rolesLabel.text = hero.roles?.joined(separator:", ")
 	}
 }
