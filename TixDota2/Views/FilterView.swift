@@ -10,7 +10,6 @@ import UIKit
 
 class FilterViewModel: ViewModel {
 	var states: [String] = []
-	var didSelectHandler: ((String) -> Void) = {_ in }
 	
 	init(states: [String]) {
 		self.states = states
@@ -18,7 +17,8 @@ class FilterViewModel: ViewModel {
 	
 	fileprivate func shouldSelectCell(_ indexPath: IndexPath) {
 		let state = self.states[indexPath.row]
-		self.didSelectHandler(state)
+				
+		NotificationCenter.default.post(name: .filterTapped, object: nil, userInfo: ["state": state])
 	}
 }
 

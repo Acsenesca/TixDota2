@@ -101,3 +101,7 @@ extension UICollectionView {
         self.backgroundView = nil
     }
 }
+
+extension NSNotification.Name {
+	static let filterTapped = NSNotification.Name("filterTapped")
+}
