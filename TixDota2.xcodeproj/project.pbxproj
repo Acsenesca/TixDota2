@@ -30,6 +30,8 @@
 		464F69FD24D4762900DEE186 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F69FC24D4762900DEE186 /* Constants.swift */; };
 		464F6A0024D5229A00DEE186 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F69FF24D5229A00DEE186 /* Hero.swift */; };
 		464F6A0424D6807C00DEE186 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F6A0324D6807C00DEE186 /* HeroDetailViewController.swift */; };
+		464F6A0624D832EA00DEE186 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464F6A0524D832E900DEE186 /* KeychainSwift.framework */; };
+		464F6A0724D832EA00DEE186 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 464F6A0524D832E900DEE186 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4661E6E424D3EA9C00C82059 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661E6E224D3EA9C00C82059 /* FilterCell.swift */; };
 		4661E6E524D3EA9C00C82059 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6E324D3EA9C00C82059 /* FilterCell.xib */; };
 		4661E6E924D3F2CF00C82059 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661E6E824D3F2CF00C82059 /* FilterView.swift */; };
@@ -45,6 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				464F6A0724D832EA00DEE186 /* KeychainSwift.framework in Embed Frameworks */,
 				461514C224D19E600085EE57 /* Moya.framework in Embed Frameworks */,
 				461514C424D19E600085EE57 /* Kingfisher.framework in Embed Frameworks */,
 				461514CA24D19E710085EE57 /* ReactiveSwift.framework in Embed Frameworks */,
@@ -78,6 +81,7 @@
 		464F69FC24D4762900DEE186 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		464F69FF24D5229A00DEE186 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		464F6A0324D6807C00DEE186 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
+		464F6A0524D832E900DEE186 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
 		4661E6E224D3EA9C00C82059 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		4661E6E324D3EA9C00C82059 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		4661E6E824D3F2CF00C82059 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464F6A0624D832EA00DEE186 /* KeychainSwift.framework in Frameworks */,
 				461514C124D19E600085EE57 /* Moya.framework in Frameworks */,
 				461514C324D19E600085EE57 /* Kingfisher.framework in Frameworks */,
 				461514C924D19E710085EE57 /* ReactiveSwift.framework in Frameworks */,
@@ -137,6 +142,7 @@
 		461514BA24D19E500085EE57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				464F6A0524D832E900DEE186 /* KeychainSwift.framework */,
 				461514C524D19E710085EE57 /* ReactiveMoya.framework */,
 				461514C624D19E710085EE57 /* ReactiveSwift.framework */,
 				461514C024D19E600085EE57 /* Kingfisher.framework */,
@@ -275,6 +281,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainSwift.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

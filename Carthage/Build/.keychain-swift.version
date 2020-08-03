@@ -1,0 +1,10 @@
+{
+  "commitish" : "19.0.0",
+  "iOS" : [
+    {
+      "name" : "KeychainSwift",
+      "hash" : "9b60d90d53883a04623b3c2504d2b9b3972b317a84297bc4c99aea5682026b51",
+      "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+    }
+  ]
+}
