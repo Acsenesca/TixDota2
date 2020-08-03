@@ -20,15 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
 			let window = UIWindow(frame: UIScreen.main.bounds)
             self.window = window
+			let storage = HeroStorage()
+			let listOfHeroes = storage.load(key: HeroStorageKey.listOfHeroes.rawValue)
 
 			let vm = HeroViewModel()
 			vm.requestListHeroes(completionHandler: { showAlert in
 				vm.shouldShowAlert = showAlert
+				
+				if showAlert {
+					vm.heroes.value = listOfHeroes
+				}
+				
 				let viewController = HeroViewController(viewModel: vm)
-			
-				viewController.title = "All"
-
 				let nav = UINavigationController(rootViewController: viewController)
+				viewController.title = "All"
 
 				window.rootViewController = nav
 				window.makeKeyAndVisible()

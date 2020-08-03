@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+protocol CacheStorage {
+	associatedtype Key
+	associatedtype Value
+	
+	func save(value: Value, key: Key)
+	
+	func load(key: Key) -> Value?
+	
+	func remove(key: Key)
+	
+	func removeAll()
+}

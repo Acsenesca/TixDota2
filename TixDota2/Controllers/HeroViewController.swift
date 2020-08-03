@@ -13,7 +13,6 @@ import ReactiveSwift
 
 class HeroViewModel: ViewModel {
 	var heroes: MutableProperty<[Hero]?> = MutableProperty(nil)
-	var copyHeroes: MutableProperty<[Hero]?> = MutableProperty(nil)
 	var didSelectHandler: ((Hero) -> Void) = {_ in }
 	var filterStates: [String] = ["All"]
 	var selectedState: String = "All"
@@ -27,10 +26,14 @@ class HeroViewModel: ViewModel {
 			case .success:
 				if let data = response.data {
 					do {
+						let storage = HeroStorage()
 						let decoder = JSONDecoder()
 						decoder.keyDecodingStrategy = .convertFromSnakeCase
 						let jsonData = try decoder.decode([Hero].self, from: data)
 						
+						storage.removeAll()
+						storage.save(value: jsonData, key: HeroStorageKey.listOfHeroes.rawValue)
+
 						self.heroes.value = jsonData
 
 						let flattenedArray = jsonData.map { ($0.roles ?? []) }.reduce([], +)
@@ -42,39 +45,53 @@ class HeroViewModel: ViewModel {
 					}
 				}
 			case .failure( _):
+				let storage = HeroStorage()
+				let heroes = storage.load(key: HeroStorageKey.listOfHeroes.rawValue)
+				
+				if let values = heroes {
+					let flattenedArray = values.map { ($0.roles ?? []) }.reduce([], +)
+					self.filterStates = self.filterStates + Array(Set(flattenedArray)).sorted()
+				}
+				
 				completionHandler(true)
 			}
 		}
 	}
 	
 	fileprivate func shouldSelectCell(_ indexPath: IndexPath) {
-		guard let hero = self.selectedState == "All" ? self.heroes.value?[indexPath.row] : self.copyHeroes.value?[indexPath.row]  else { return }
+		guard let hero = self.heroes.value?[indexPath.row] else { return }
+		
 		self.didSelectHandler(hero)
 	}
 	
 	fileprivate func requestFilteredHeroes(state: String, completionHandler: @escaping () -> Void) {
-		let filteredHeroes = self.heroes.value?.filter {
-			var tempRoles: [String] = []
-			
-			if let roles = $0.roles {
-				tempRoles = roles
+		let storage = HeroStorage()
+		let listOfHeroes = storage.load(key: HeroStorageKey.listOfHeroes.rawValue)
+		
+		if state != "All" {
+			let filteredHeroes = listOfHeroes?.filter {
+				var tempRoles: [String] = []
+				
+				if let roles = $0.roles {
+					tempRoles = roles
+				}
+				
+				return tempRoles.contains(state)
 			}
 			
-			return tempRoles.contains(state)
+			self.heroes.value = filteredHeroes
+
+		} else {
+			self.heroes.value = listOfHeroes
 		}
 		
-		self.copyHeroes.value = filteredHeroes
 		completionHandler()
 	}
 }
 
 extension HeroViewModel: SectionedCollectionSource, SizeCollectionSource, SelectedCollectionSource {
 	func numberOfCollectionCellAtSection(section: Int) -> Int {
-		if self.selectedState == "All" {
-			return self.heroes.value?.count ?? 0
-		} else {
-			return self.copyHeroes.value?.count ?? 0
-		}
+		return self.heroes.value?.count ?? 0
 	}
 	
 	func collectionCellIdentifierAtIndexPath(indexPath: IndexPath) -> String {
@@ -82,12 +99,7 @@ extension HeroViewModel: SectionedCollectionSource, SizeCollectionSource, Select
 	}
 	
 	func collectionCellModelAtIndexPath(indexPath: IndexPath) -> ViewModel {
-		
-		if self.selectedState == "All" {
-			return HeroMainCellModel(hero: self.heroes.value?[indexPath.row])
-		} else {
-			return HeroMainCellModel(hero: self.copyHeroes.value?[indexPath.row])
-		}
+		return HeroMainCellModel(hero: self.heroes.value?[indexPath.row])
 	}
 	func cellClassAtIndexPath(indexPath: IndexPath) -> UICollectionViewCell.Type {
 		return HeroMainCell.self
@@ -210,7 +222,7 @@ class HeroViewController: UIViewController {
 	
 	fileprivate func configureAlertView() {
 		if self.viewModel.shouldShowAlert {
-			let alert = UIAlertController(title: "Something Went Wrong", message: "Please Check Your Connection. Thank You.", preferredStyle: .alert)
+			let alert = UIAlertController(title: "Unable to Verify Update Data", message: "Currently only use local data. Please check your connection. ", preferredStyle: .alert)
 			alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 		
 			self.present(alert, animated: true, completion: nil)

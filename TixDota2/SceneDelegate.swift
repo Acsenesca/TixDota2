@@ -21,10 +21,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         self.window = window
+		let storage = HeroStorage()
+		let listOfHeroes = storage.load(key: HeroStorageKey.listOfHeroes.rawValue)
 		
 		let vm = HeroViewModel()
 		vm.requestListHeroes(completionHandler: { showAlert in
 			vm.shouldShowAlert = showAlert
+			
+			if showAlert {
+				vm.heroes.value = listOfHeroes
+			}
+
 			let viewController = HeroViewController(viewModel: vm)
 			viewController.title = "All"
 

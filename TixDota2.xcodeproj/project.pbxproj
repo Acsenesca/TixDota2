@@ -32,6 +32,8 @@
 		464F6A0424D6807C00DEE186 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F6A0324D6807C00DEE186 /* HeroDetailViewController.swift */; };
 		464F6A0624D832EA00DEE186 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464F6A0524D832E900DEE186 /* KeychainSwift.framework */; };
 		464F6A0724D832EA00DEE186 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 464F6A0524D832E900DEE186 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		464F6A0A24D8341000DEE186 /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F6A0924D8341000DEE186 /* CacheStorage.swift */; };
+		464F6A0C24D8342D00DEE186 /* HeroStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F6A0B24D8342D00DEE186 /* HeroStorage.swift */; };
 		4661E6E424D3EA9C00C82059 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661E6E224D3EA9C00C82059 /* FilterCell.swift */; };
 		4661E6E524D3EA9C00C82059 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6E324D3EA9C00C82059 /* FilterCell.xib */; };
 		4661E6E924D3F2CF00C82059 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661E6E824D3F2CF00C82059 /* FilterView.swift */; };
@@ -82,6 +84,8 @@
 		464F69FF24D5229A00DEE186 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		464F6A0324D6807C00DEE186 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
 		464F6A0524D832E900DEE186 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
+		464F6A0924D8341000DEE186 /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
+		464F6A0B24D8342D00DEE186 /* HeroStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroStorage.swift; sourceTree = "<group>"; };
 		4661E6E224D3EA9C00C82059 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		4661E6E324D3EA9C00C82059 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		4661E6E824D3F2CF00C82059 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		461514A424D193A90085EE57 /* TixDota2 */ = {
 			isa = PBXGroup;
 			children = (
+				464F6A0824D8340000DEE186 /* Storage */,
 				464F69FE24D5227000DEE186 /* Models */,
 				461514E624D26BF30085EE57 /* Controllers */,
 				461514E124D267030085EE57 /* Views */,
@@ -195,6 +200,15 @@
 				464F69FF24D5229A00DEE186 /* Hero.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		464F6A0824D8340000DEE186 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				464F6A0924D8341000DEE186 /* CacheStorage.swift */,
+				464F6A0B24D8342D00DEE186 /* HeroStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,11 +314,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				461514A624D193A90085EE57 /* AppDelegate.swift in Sources */,
+				464F6A0C24D8342D00DEE186 /* HeroStorage.swift in Sources */,
 				461514D524D1B1930085EE57 /* FactoryProtocol.swift in Sources */,
 				461514EB24D287A90085EE57 /* HeroMainCell.swift in Sources */,
 				4661E6E424D3EA9C00C82059 /* FilterCell.swift in Sources */,
 				461514D324D1B1710085EE57 /* SectionedSourceProtocol.swift in Sources */,
 				464F6A0024D5229A00DEE186 /* Hero.swift in Sources */,
+				464F6A0A24D8341000DEE186 /* CacheStorage.swift in Sources */,
 				464F6A0424D6807C00DEE186 /* HeroDetailViewController.swift in Sources */,
 				461514CF24D1B0130085EE57 /* Helper.swift in Sources */,
 				461514CD24D1AF980085EE57 /* ViewModel.swift in Sources */,
