@@ -13,8 +13,6 @@
 		461514B224D193AC0085EE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461514B024D193AC0085EE57 /* LaunchScreen.storyboard */; };
 		461514BC24D19E500085EE57 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461514BB24D19E500085EE57 /* Alamofire.framework */; };
 		461514BD24D19E500085EE57 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461514BB24D19E500085EE57 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		461514C124D19E600085EE57 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461514BF24D19E600085EE57 /* Moya.framework */; };
-		461514C224D19E600085EE57 /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461514BF24D19E600085EE57 /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		461514C324D19E600085EE57 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461514C024D19E600085EE57 /* Kingfisher.framework */; };
 		461514C424D19E600085EE57 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461514C024D19E600085EE57 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		461514C924D19E710085EE57 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461514C624D19E710085EE57 /* ReactiveSwift.framework */; };
@@ -43,6 +41,8 @@
 		4661E6EB24D3F31600C82059 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6EA24D3F31600C82059 /* FilterView.xib */; };
 		4661E6ED24D4696200C82059 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661E6EC24D4696200C82059 /* DetailView.swift */; };
 		4661E6EF24D4697600C82059 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6EE24D4697600C82059 /* DetailView.xib */; };
+		46926E9924D9C46F005AA2DC /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46926E9824D9C46F005AA2DC /* Quick.framework */; };
+		46926E9B24D9C473005AA2DC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46926E9A24D9C473005AA2DC /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				464F6A0724D832EA00DEE186 /* KeychainSwift.framework in Embed Frameworks */,
-				461514C224D19E600085EE57 /* Moya.framework in Embed Frameworks */,
 				461514C424D19E600085EE57 /* Kingfisher.framework in Embed Frameworks */,
 				461514CA24D19E710085EE57 /* ReactiveSwift.framework in Embed Frameworks */,
 				461514BD24D19E500085EE57 /* Alamofire.framework in Embed Frameworks */,
@@ -110,6 +109,8 @@
 		4661E6EA24D3F31600C82059 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		4661E6EC24D4696200C82059 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4661E6EE24D4697600C82059 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		46926E9824D9C46F005AA2DC /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		46926E9A24D9C473005AA2DC /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				464F6A0624D832EA00DEE186 /* KeychainSwift.framework in Frameworks */,
-				461514C124D19E600085EE57 /* Moya.framework in Frameworks */,
 				461514C324D19E600085EE57 /* Kingfisher.framework in Frameworks */,
 				461514C924D19E710085EE57 /* ReactiveSwift.framework in Frameworks */,
 				461514BC24D19E500085EE57 /* Alamofire.framework in Frameworks */,
@@ -129,6 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46926E9924D9C46F005AA2DC /* Quick.framework in Frameworks */,
+				46926E9B24D9C473005AA2DC /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +176,8 @@
 		461514BA24D19E500085EE57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46926E9A24D9C473005AA2DC /* Nimble.framework */,
+				46926E9824D9C46F005AA2DC /* Quick.framework */,
 				464F6A0524D832E900DEE186 /* KeychainSwift.framework */,
 				461514C524D19E710085EE57 /* ReactiveMoya.framework */,
 				461514C624D19E710085EE57 /* ReactiveSwift.framework */,
@@ -364,7 +368,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainSwift.framework",
 			);
 			name = Carthage;
@@ -619,6 +622,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7PC2NP6GC3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TixDota2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,6 +646,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7PC2NP6GC3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TixDota2Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

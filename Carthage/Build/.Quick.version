@@ -3,7 +3,7 @@
   "iOS" : [
     {
       "name" : "Quick",
-      "hash" : "2db4411c4bd6e0167444de78607fbe7ec84ab5c750b78c3bc0b5190c971ec2c0",
+      "hash" : "d082062474c114cc46a648ad6ba535efed5c0cd2d3cd15594e0bd1715bea01c7",
       "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
     }
   ]

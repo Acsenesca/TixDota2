@@ -3,5 +3,4 @@ github "onevcat/Kingfisher" ~> 5.0
 github "Quick/Nimble"
 github "Quick/Quick"
 github "ReactiveCocoa/ReactiveSwift" ~> 6.1
-github "Moya/Moya" ~> 14.0
 github "evgenyneu/keychain-swift" ~> 19.0

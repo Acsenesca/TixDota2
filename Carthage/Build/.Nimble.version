@@ -3,7 +3,7 @@
   "iOS" : [
     {
       "name" : "Nimble",
-      "hash" : "5b48f3e3872fd031b4383c24267250e29a994b60aa08396e1a8babed7a520c72",
+      "hash" : "5f78f815eeb8ab5df939d5200996031b1bef0dc83447aa0a7ec525120bb9025f",
       "swiftToolchainVersion" : "5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
     }
   ]
