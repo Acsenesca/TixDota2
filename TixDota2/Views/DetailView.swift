@@ -11,15 +11,49 @@ import ReactiveSwift
 
 class DetailViewModel: ViewModel {
 	let hero: MutableProperty<Hero?> = MutableProperty(nil)
+	let similiarHeroes: MutableProperty<[Hero]?> = MutableProperty(nil)
 	
 	init(hero: Hero?) {
 		self.hero.value = hero
+	}
+	
+	fileprivate func requestSimiliarHeroes(completionHandler: @escaping () -> Void) {
+		let storage = HeroStorage()
+		let listOfHeroes = storage.load(key: HeroStorageKey.listOfHeroes.rawValue)
+
+		guard let hero = self.hero.value else { return }
+
+		let filteredHeroes = listOfHeroes?.filter {
+			($0.roles == hero.roles) &&
+			($0.primaryAttr == hero.primaryAttr) &&
+			($0.id != hero.id)
+		}
+		
+		let sortedHeroes = filteredHeroes?.sorted(by: {
+			if hero.primaryAttr == PrimaryAttr.Agi {
+				return $0.moveSpeed ?? 0 > $1.moveSpeed ?? 0
+			} else if hero.primaryAttr == PrimaryAttr.Str {
+				return $0.baseAttackMax ?? 0 > $1.baseAttackMax ?? 0
+			} else if hero.primaryAttr == PrimaryAttr.Int {
+				return $0.baseMana ?? 0 > $1.baseMana ?? 0
+			} else {
+				return false
+			}
+		})
+		
+		if let count = sortedHeroes?.count {
+			if count == 1 {
+				self.similiarHeroes.value = sortedHeroes
+			} else if count > 0 && count <= 3 {
+				self.similiarHeroes.value = Array(sortedHeroes?[0...count-1] ?? [])
+			}
+		}
 	}
 }
 
 extension DetailViewModel: SectionedCollectionSource, SizeCollectionSource {
 	func numberOfCollectionCellAtSection(section: Int) -> Int {
-		return 5
+		return self.similiarHeroes.value?.count ?? 0
 	}
 	
 	func collectionCellIdentifierAtIndexPath(indexPath: IndexPath) -> String {
@@ -27,7 +61,7 @@ extension DetailViewModel: SectionedCollectionSource, SizeCollectionSource {
 	}
 	
 	func collectionCellModelAtIndexPath(indexPath: IndexPath) -> ViewModel {
-		return HeroDetailCellModel(hero: self.hero.value)
+		return HeroDetailCellModel(hero: self.similiarHeroes.value?[indexPath.row])
 	}
 	
 	func cellClassAtIndexPath(indexPath: IndexPath) -> UICollectionViewCell.Type {
@@ -72,7 +106,8 @@ class DetailView: UIView, ViewBinding {
 			collectionViewBinding?.bindDatasourceWithCollectionView(collectionView: collectionView)
 			
 			configureCollectionView()
-		}
+			vm.requestSimiliarHeroes(completionHandler: {})
+		}		
 
 		self.configureView()
 	}
@@ -84,7 +119,7 @@ class DetailView: UIView, ViewBinding {
 		self.collectionView.register(HeroDetailCell.nib(), forCellWithReuseIdentifier: HeroDetailCell.identifier())
 	}
 	
-	func configureView() {
+	fileprivate func configureView() {
 		let placeholder = UIImage(named: "pic-default-profilepict")
 		self.heroMainImageView.kf.indicatorType = .activity
 		
@@ -126,7 +161,7 @@ class DetailView: UIView, ViewBinding {
 			self.baseManaLabel.text = "\(String(describing: baseMana))"
 		}
 		
-		self.attributeLabel.text = hero.primaryAttr
+		self.attributeLabel.text = hero.primaryAttr?.rawValue
 		self.heroNameLabel.text = hero.localizedName
 		self.rolesLabel.text = hero.roles?.joined(separator:", ")
 	}

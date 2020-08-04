@@ -11,7 +11,7 @@ import Foundation
 struct Hero: Codable {
 	let id: Int
 	let localizedName: String?
-	let primaryAttr: String?
+	let primaryAttr: PrimaryAttr?
 	let attackType: AttackType?
 	let roles: [String]?
 	let img: String?
@@ -43,5 +43,12 @@ struct Hero: Codable {
 enum AttackType: String, Codable {
 	case Melee
 	case Ranged
+	case Undefined
+}
+
+enum PrimaryAttr: String, Codable {
+	case Int = "int"
+	case Str = "str"
+	case Agi = "agi"
 	case Undefined
 }

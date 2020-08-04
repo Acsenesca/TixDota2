@@ -212,7 +212,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gkJ-eW-Wgy">
-                    <rect key="frame" x="300" y="220.33333333333337" width="416" height="173.66666666666663"/>
+                    <rect key="frame" x="300" y="220.33333333333337" width="308" height="173.66666666666663"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="npl-ue-Ubj">
                         <size key="itemSize" width="128" height="128"/>
@@ -227,6 +227,7 @@
                 <constraint firstItem="fvZ-1Y-gqp" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="44j-4b-XN5"/>
                 <constraint firstItem="Uxw-eH-Kqe" firstAttribute="leading" secondItem="fvZ-1Y-gqp" secondAttribute="trailing" constant="5" id="4QX-85-Qmt"/>
                 <constraint firstItem="WuA-fz-7fC" firstAttribute="centerY" secondItem="fvZ-1Y-gqp" secondAttribute="centerY" id="6TY-Me-Dqg"/>
+                <constraint firstItem="gkJ-eW-Wgy" firstAttribute="trailing" secondItem="odk-7Y-A1H" secondAttribute="trailing" id="6eA-3f-BJI"/>
                 <constraint firstItem="GH6-VM-z92" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8C3-vf-dSI"/>
                 <constraint firstItem="GH6-VM-z92" firstAttribute="trailing" secondItem="uke-0T-l19" secondAttribute="trailing" id="8Vy-Mj-zwp"/>
                 <constraint firstItem="odk-7Y-A1H" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8wP-1x-RuA"/>
@@ -292,6 +293,7 @@
                     <exclude reference="6TY-Me-Dqg"/>
                     <exclude reference="mCX-mg-2FQ"/>
                     <exclude reference="wKS-6X-yNw"/>
+                    <exclude reference="6eA-3f-BJI"/>
                     <exclude reference="pMi-ZL-Ks6"/>
                     <exclude reference="sNm-DU-7Lh"/>
                 </mask>
@@ -299,7 +301,7 @@
             <variation key="heightClass=compact">
                 <mask key="constraints">
                     <exclude reference="HvT-hf-QaZ"/>
-                    <include reference="NHa-bv-qcM"/>
+                    <exclude reference="NHa-bv-qcM"/>
                     <exclude reference="PJh-Gc-Khp"/>
                     <include reference="RnF-3G-ZJu"/>
                     <exclude reference="azI-vh-mhX"/>
@@ -337,6 +339,7 @@
                     <include reference="mCX-mg-2FQ"/>
                     <exclude reference="tXS-FO-x1S"/>
                     <include reference="wKS-6X-yNw"/>
+                    <include reference="6eA-3f-BJI"/>
                     <exclude reference="AQ6-kR-R9h"/>
                     <exclude reference="BBn-h5-5YJ"/>
                     <include reference="pMi-ZL-Ks6"/>
