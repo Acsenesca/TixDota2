@@ -162,7 +162,7 @@ class HeroViewController: UIViewController {
 		super.viewWillAppear(animated)
 	}
 	
-	fileprivate func bindViewModel() {
+	private func bindViewModel() {
 		collectionViewBinding = CollectionViewBindingUtil(source: self.viewModel)
 		collectionViewBinding?.bindFlowDelegateWithCollectionView(collectionView: collectionView)
 		collectionViewBinding?.bindDatasourceWithCollectionView(collectionView: collectionView)
@@ -175,7 +175,7 @@ class HeroViewController: UIViewController {
 		}
 	}
 	
-	fileprivate func configureCollectionView() {
+	private func configureCollectionView() {
 		self.collectionView.layer.cornerRadius = 5
 		self.collectionView.layer.masksToBounds = true
 		self.collectionView.backgroundColor = UIColor.secondaryColor
@@ -187,7 +187,7 @@ class HeroViewController: UIViewController {
 		self.collectionView.register(HeroMainCell.nib(), forCellWithReuseIdentifier: HeroMainCell.identifier())
 	}
 	
-	fileprivate func configureNotification() {
+	private func configureNotification() {
 		NotificationCenter.default.addObserver(forName: .filterTapped, object: nil, queue: nil, using: {[weak self] (notification) -> Void in
 			guard let state = notification.userInfo?["state"] as? String else {
 				return
@@ -198,20 +198,20 @@ class HeroViewController: UIViewController {
 		})
 	}
 	
-	fileprivate func resetCollectionView() {
+	private func resetCollectionView() {
 		self.viewModel.requestFilteredHeroes(state: self.viewModel.selectedState, completionHandler: {
 			self.title = self.viewModel.selectedState
 			self.collectionView.reloadData()
 		})
 	}
 
-	fileprivate func setupConstraints() {
+	private func setupConstraints() {
 		self.setFilterViewConstraints()
 		self.setSeparatorViewConstraints()
 		self.setCollectionViewConstraints()
 	}
 	
-	fileprivate func configureView() {
+	private func configureView() {
 		view.addSubview(self.filterView)
 		view.addSubview(self.collectionView)
 		view.addSubview(self.separatorView)
@@ -220,7 +220,7 @@ class HeroViewController: UIViewController {
 		self.setupConstraints()
 	}
 	
-	fileprivate func configureAlertView() {
+	private func configureAlertView() {
 		if self.viewModel.shouldShowAlert {
 			let alert = UIAlertController(title: "Unable to Verify Update Data", message: "Currently only use local data. Please check your connection. ", preferredStyle: .alert)
 			alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -229,7 +229,7 @@ class HeroViewController: UIViewController {
 		}
 	}
 	
-	fileprivate func setFilterViewConstraints() {
+	private func setFilterViewConstraints() {
 		filterView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint(item: filterView,
@@ -273,7 +273,7 @@ class HeroViewController: UIViewController {
 						   constant: filterView.viewSize().height).isActive = true
 	}
 	
-	fileprivate func setSeparatorViewConstraints() {
+	private func setSeparatorViewConstraints() {
 		separatorView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint(item: separatorView,
@@ -309,7 +309,7 @@ class HeroViewController: UIViewController {
 						   constant: 3).isActive = true
 	}
 	
-	fileprivate func setCollectionViewConstraints() {
+	private func setCollectionViewConstraints() {
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint(item: collectionView,

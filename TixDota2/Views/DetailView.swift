@@ -112,14 +112,14 @@ class DetailView: UIView, ViewBinding {
 		self.configureView()
 	}
 	
-	fileprivate func configureCollectionView() {
+	private func configureCollectionView() {
 		self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
 		self.collectionView.backgroundColor = UIColor.clear
 		self.collectionView.isScrollEnabled = true
 		self.collectionView.register(HeroDetailCell.nib(), forCellWithReuseIdentifier: HeroDetailCell.identifier())
 	}
 	
-	fileprivate func configureView() {
+	private func configureView() {
 		let placeholder = UIImage(named: "pic-default-profilepict")
 		self.heroMainImageView.kf.indicatorType = .activity
 		

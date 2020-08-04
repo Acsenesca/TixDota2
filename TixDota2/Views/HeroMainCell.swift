@@ -42,7 +42,7 @@ class HeroMainCell: UICollectionViewCell, ViewBinding {
 		self.configureView()
 	}
 	
-	func configureView() {
+	private func configureView() {
 		let placeholder = UIImage(named: "pic-default-profilepict")
 		
 		self.layer.cornerRadius = 5

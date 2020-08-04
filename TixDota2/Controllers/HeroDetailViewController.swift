@@ -44,7 +44,7 @@ class HeroDetailViewController: UIViewController {
 		self.configureView()
 	}
 	
-	fileprivate func configureView() {
+	private func configureView() {
 		self.title = self.viewModel.hero.value?.localizedName
 		
 		edgesForExtendedLayout = []
@@ -54,7 +54,7 @@ class HeroDetailViewController: UIViewController {
 		self.setDetailViewConstraints()
 	}
 	
-	fileprivate func setDetailViewConstraints() {
+	private func setDetailViewConstraints() {
 		self.detailView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint(item: detailView,

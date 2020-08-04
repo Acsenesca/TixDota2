@@ -77,7 +77,7 @@ class FilterView: UIView, ViewBinding {
 		configureCollectionView()
 	}
 	
-	fileprivate func configureCollectionView() {
+	private func configureCollectionView() {
 		self.addSubview(self.collectionView)
 		
 		self.setFilterViewConstraints()
@@ -89,7 +89,7 @@ class FilterView: UIView, ViewBinding {
 		self.collectionView.register(FilterCell.nib(), forCellWithReuseIdentifier: FilterCell.identifier())
 	}
 	
-	fileprivate func setFilterViewConstraints() {
+	private func setFilterViewConstraints() {
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint(item: collectionView,
