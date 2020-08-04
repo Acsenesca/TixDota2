@@ -38,11 +38,11 @@ class HeroDetailViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
 		self.configureView()
-    }
+	}
 	
 	fileprivate func configureView() {
 		self.title = self.viewModel.hero.value?.localizedName
