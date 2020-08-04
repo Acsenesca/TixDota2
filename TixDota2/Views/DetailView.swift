@@ -17,6 +17,28 @@ class DetailViewModel: ViewModel {
 	}
 }
 
+extension DetailViewModel: SectionedCollectionSource, SizeCollectionSource {
+	func numberOfCollectionCellAtSection(section: Int) -> Int {
+		return 5
+	}
+	
+	func collectionCellIdentifierAtIndexPath(indexPath: IndexPath) -> String {
+		return HeroDetailCell.identifier()
+	}
+	
+	func collectionCellModelAtIndexPath(indexPath: IndexPath) -> ViewModel {
+		return HeroDetailCellModel(hero: self.hero.value)
+	}
+	
+	func cellClassAtIndexPath(indexPath: IndexPath) -> UICollectionViewCell.Type {
+		return HeroDetailCell.self
+	}
+	
+	func cellSizeAtIndexPath(indexPath: IndexPath, withCell cell: UICollectionViewCell) -> CGSize {
+		return cell.viewSize()
+	}
+}
+
 class DetailView: UIView, ViewBinding {
 
 	@IBOutlet weak var heroMainImageView: UIImageView!
@@ -31,6 +53,9 @@ class DetailView: UIView, ViewBinding {
 	@IBOutlet weak var baseManaLabel: UILabel!
 	@IBOutlet weak var attributeLabel: UILabel!
 	
+	@IBOutlet weak var collectionView: UICollectionView!
+	private var collectionViewBinding: CollectionViewBindingUtil<DetailViewModel>?
+
 	typealias VM = DetailViewModel
 	var viewModel: VM?
 	
@@ -40,8 +65,23 @@ class DetailView: UIView, ViewBinding {
 	
 	func bindViewModel(viewModel: VM?) {
 		self.viewModel = viewModel
+	
+		if let vm = self.viewModel {
+			collectionViewBinding = CollectionViewBindingUtil(source: vm)
+			collectionViewBinding?.bindFlowDelegateWithCollectionView(collectionView: collectionView)
+			collectionViewBinding?.bindDatasourceWithCollectionView(collectionView: collectionView)
+			
+			configureCollectionView()
+		}
 
 		self.configureView()
+	}
+	
+	fileprivate func configureCollectionView() {
+		self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+		self.collectionView.backgroundColor = UIColor.clear
+		self.collectionView.isScrollEnabled = true
+		self.collectionView.register(HeroDetailCell.nib(), forCellWithReuseIdentifier: HeroDetailCell.identifier())
 	}
 	
 	func configureView() {

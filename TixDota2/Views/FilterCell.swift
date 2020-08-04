@@ -24,6 +24,10 @@ class FilterCell: UICollectionViewCell, ViewBinding {
 	typealias VM = FilterCellModel
 	var viewModel: VM?
 	
+	override func viewSize() -> CGSize {
+		return CGSize(width: 100, height: 40)
+	}
+	
     override func awakeFromNib() {
         super.awakeFromNib()
 		

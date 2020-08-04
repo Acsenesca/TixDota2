@@ -27,6 +27,8 @@
 		461514E824D26C3B0085EE57 /* HeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461514E724D26C3B0085EE57 /* HeroViewController.swift */; };
 		461514EB24D287A90085EE57 /* HeroMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461514E924D287A90085EE57 /* HeroMainCell.swift */; };
 		461514EC24D287A90085EE57 /* HeroMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 461514EA24D287A90085EE57 /* HeroMainCell.xib */; };
+		4618915F24D9365200519AF1 /* HeroDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618915D24D9365100519AF1 /* HeroDetailCell.swift */; };
+		4618916024D9365200519AF1 /* HeroDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4618915E24D9365200519AF1 /* HeroDetailCell.xib */; };
 		464F69FD24D4762900DEE186 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F69FC24D4762900DEE186 /* Constants.swift */; };
 		464F6A0024D5229A00DEE186 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F69FF24D5229A00DEE186 /* Hero.swift */; };
 		464F6A0424D6807C00DEE186 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F6A0324D6807C00DEE186 /* HeroDetailViewController.swift */; };
@@ -80,6 +82,8 @@
 		461514E724D26C3B0085EE57 /* HeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewController.swift; sourceTree = "<group>"; };
 		461514E924D287A90085EE57 /* HeroMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroMainCell.swift; sourceTree = "<group>"; };
 		461514EA24D287A90085EE57 /* HeroMainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroMainCell.xib; sourceTree = "<group>"; };
+		4618915D24D9365100519AF1 /* HeroDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailCell.swift; sourceTree = "<group>"; };
+		4618915E24D9365200519AF1 /* HeroDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailCell.xib; sourceTree = "<group>"; };
 		464F69FC24D4762900DEE186 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		464F69FF24D5229A00DEE186 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		464F6A0324D6807C00DEE186 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 				4661E6EA24D3F31600C82059 /* FilterView.xib */,
 				4661E6EC24D4696200C82059 /* DetailView.swift */,
 				4661E6EE24D4697600C82059 /* DetailView.xib */,
+				4618915D24D9365100519AF1 /* HeroDetailCell.swift */,
+				4618915E24D9365200519AF1 /* HeroDetailCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 				4661E6EB24D3F31600C82059 /* FilterView.xib in Resources */,
 				4661E6EF24D4697600C82059 /* DetailView.xib in Resources */,
 				461514B224D193AC0085EE57 /* LaunchScreen.storyboard in Resources */,
+				4618916024D9365200519AF1 /* HeroDetailCell.xib in Resources */,
 				4661E6E524D3EA9C00C82059 /* FilterCell.xib in Resources */,
 				461514AF24D193AC0085EE57 /* Assets.xcassets in Resources */,
 				461514EC24D287A90085EE57 /* HeroMainCell.xib in Resources */,
@@ -325,6 +332,7 @@
 				461514CF24D1B0130085EE57 /* Helper.swift in Sources */,
 				461514CD24D1AF980085EE57 /* ViewModel.swift in Sources */,
 				461514D124D1B14C0085EE57 /* CollectionViewBindingUtil.swift in Sources */,
+				4618915F24D9365200519AF1 /* HeroDetailCell.swift in Sources */,
 				461514E824D26C3B0085EE57 /* HeroViewController.swift in Sources */,
 				4661E6ED24D4696200C82059 /* DetailView.swift in Sources */,
 				461514A824D193A90085EE57 /* SceneDelegate.swift in Sources */,

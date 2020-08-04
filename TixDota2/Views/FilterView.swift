@@ -40,7 +40,7 @@ extension FilterViewModel: SectionedCollectionSource, SizeCollectionSource, Sele
 	}
 	
 	func cellSizeAtIndexPath(indexPath: IndexPath, withCell cell: UICollectionViewCell) -> CGSize {
-		return CGSize(width: 100, height: 40)
+		return cell.viewSize()
 	}
 	
 	func didSelectCellAtIndexPath(collectionView: UICollectionView, indexPath: IndexPath, withCell cell: UICollectionViewCell) {
