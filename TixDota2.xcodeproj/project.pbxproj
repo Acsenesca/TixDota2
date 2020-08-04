@@ -29,6 +29,7 @@
 		461514EC24D287A90085EE57 /* HeroMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 461514EA24D287A90085EE57 /* HeroMainCell.xib */; };
 		4618915F24D9365200519AF1 /* HeroDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618915D24D9365100519AF1 /* HeroDetailCell.swift */; };
 		4618916024D9365200519AF1 /* HeroDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4618915E24D9365200519AF1 /* HeroDetailCell.xib */; };
+		4618916B24D97FBD00519AF1 /* TixDota2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618916A24D97FBD00519AF1 /* TixDota2Tests.swift */; };
 		464F69FD24D4762900DEE186 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F69FC24D4762900DEE186 /* Constants.swift */; };
 		464F6A0024D5229A00DEE186 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F69FF24D5229A00DEE186 /* Hero.swift */; };
 		464F6A0424D6807C00DEE186 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F6A0324D6807C00DEE186 /* HeroDetailViewController.swift */; };
@@ -43,6 +44,16 @@
 		4661E6ED24D4696200C82059 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661E6EC24D4696200C82059 /* DetailView.swift */; };
 		4661E6EF24D4697600C82059 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6EE24D4697600C82059 /* DetailView.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4618916D24D97FBD00519AF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4615149A24D193A90085EE57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 461514A124D193A90085EE57;
+			remoteInfo = TixDota2;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		461514BE24D19E500085EE57 /* Embed Frameworks */ = {
@@ -84,6 +95,9 @@
 		461514EA24D287A90085EE57 /* HeroMainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroMainCell.xib; sourceTree = "<group>"; };
 		4618915D24D9365100519AF1 /* HeroDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailCell.swift; sourceTree = "<group>"; };
 		4618915E24D9365200519AF1 /* HeroDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailCell.xib; sourceTree = "<group>"; };
+		4618916824D97FBD00519AF1 /* TixDota2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TixDota2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4618916A24D97FBD00519AF1 /* TixDota2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TixDota2Tests.swift; sourceTree = "<group>"; };
+		4618916C24D97FBD00519AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		464F69FC24D4762900DEE186 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		464F69FF24D5229A00DEE186 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		464F6A0324D6807C00DEE186 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +125,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4618916524D97FBD00519AF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -118,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				461514A424D193A90085EE57 /* TixDota2 */,
+				4618916924D97FBD00519AF1 /* TixDota2Tests */,
 				461514A324D193A90085EE57 /* Products */,
 				461514BA24D19E500085EE57 /* Frameworks */,
 			);
@@ -127,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				461514A224D193A90085EE57 /* TixDota2.app */,
+				4618916824D97FBD00519AF1 /* TixDota2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +223,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		4618916924D97FBD00519AF1 /* TixDota2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4618916A24D97FBD00519AF1 /* TixDota2Tests.swift */,
+				4618916C24D97FBD00519AF1 /* Info.plist */,
+			);
+			path = TixDota2Tests;
+			sourceTree = "<group>";
+		};
 		464F69FE24D5227000DEE186 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +271,25 @@
 			productReference = 461514A224D193A90085EE57 /* TixDota2.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4618916724D97FBD00519AF1 /* TixDota2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4618916F24D97FBD00519AF1 /* Build configuration list for PBXNativeTarget "TixDota2Tests" */;
+			buildPhases = (
+				4618916424D97FBD00519AF1 /* Sources */,
+				4618916524D97FBD00519AF1 /* Frameworks */,
+				4618916624D97FBD00519AF1 /* Resources */,
+				4618917224D97FE000519AF1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4618916E24D97FBD00519AF1 /* PBXTargetDependency */,
+			);
+			name = TixDota2Tests;
+			productName = TixDota2Tests;
+			productReference = 4618916824D97FBD00519AF1 /* TixDota2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -251,6 +302,10 @@
 				TargetAttributes = {
 					461514A124D193A90085EE57 = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					4618916724D97FBD00519AF1 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 461514A124D193A90085EE57;
 					};
 				};
 			};
@@ -268,6 +323,7 @@
 			projectRoot = "";
 			targets = (
 				461514A124D193A90085EE57 /* TixDota2 */,
+				4618916724D97FBD00519AF1 /* TixDota2Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,6 +340,13 @@
 				4661E6E524D3EA9C00C82059 /* FilterCell.xib in Resources */,
 				461514AF24D193AC0085EE57 /* Assets.xcassets in Resources */,
 				461514EC24D287A90085EE57 /* HeroMainCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4618916624D97FBD00519AF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +368,25 @@
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainSwift.framework",
 			);
 			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks\n";
+		};
+		4618917224D97FE000519AF1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -341,7 +423,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4618916424D97FBD00519AF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4618916B24D97FBD00519AF1 /* TixDota2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4618916E24D97FBD00519AF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 461514A124D193A90085EE57 /* TixDota2 */;
+			targetProxy = 4618916D24D97FBD00519AF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		461514B024D193AC0085EE57 /* LaunchScreen.storyboard */ = {
@@ -515,6 +613,46 @@
 			};
 			name = Release;
 		};
+		4618917024D97FBD00519AF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7PC2NP6GC3;
+				INFOPLIST_FILE = TixDota2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testflight.TixDota2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TixDota2.app/TixDota2";
+			};
+			name = Debug;
+		};
+		4618917124D97FBD00519AF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7PC2NP6GC3;
+				INFOPLIST_FILE = TixDota2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testflight.TixDota2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TixDota2.app/TixDota2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -532,6 +670,15 @@
 			buildConfigurations = (
 				461514B724D193AC0085EE57 /* Debug */,
 				461514B824D193AC0085EE57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4618916F24D97FBD00519AF1 /* Build configuration list for PBXNativeTarget "TixDota2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4618917024D97FBD00519AF1 /* Debug */,
+				4618917124D97FBD00519AF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
