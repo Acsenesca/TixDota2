@@ -1,5 +1,5 @@
 //
-//  HeroMainCellModelSpec.swift
+//  HeroDetailCellModelSpec.swift
 //  TixDota2Tests
 //
 //  Created by Stevanus Prasetyo Soemadi on 05/08/20.
@@ -14,11 +14,11 @@ import KeychainSwift
 @testable
 import TixDota2
 
-class HeroMainCellModelSpec: QuickSpec {
+class HeroDetailCellModelSpec: QuickSpec {
 	
 	override func spec() {
 		
-		var heroMainCellModel: HeroMainCellModel!
+		var heroDetailCellModel: HeroDetailCellModel!
 		var mockHero: Hero!
 		
 		beforeEach {
@@ -37,12 +37,12 @@ class HeroMainCellModelSpec: QuickSpec {
 				baseAttackMax: 65,
 				moveSpeed: 300)
 			
-			heroMainCellModel = HeroMainCellModel(hero: mockHero)
+			heroDetailCellModel = HeroDetailCellModel(hero: mockHero)
 		}
 		
 		afterEach {
 			mockHero = nil
-			heroMainCellModel = nil
+			heroDetailCellModel = nil
 		}
 		
 		describe("Init") {
@@ -50,7 +50,7 @@ class HeroMainCellModelSpec: QuickSpec {
 			context("view model") {
 				
 				it("should be have correct value") {
-					let hero = heroMainCellModel.hero.value
+					let hero = heroDetailCellModel.hero.value
 					expect(hero?.id).to(be(1))
 					expect(hero?.localizedName).to(equal("Invoker"))
 					expect(hero?.primaryAttr).to(equal(PrimaryAttr.Int))
@@ -69,4 +69,3 @@ class HeroMainCellModelSpec: QuickSpec {
 		}
 	}
 }
-

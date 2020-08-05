@@ -53,6 +53,9 @@
 		46926EAE24DA4EDB005AA2DC /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EAD24DA4EDB005AA2DC /* FilterViewModel.swift */; };
 		46926EB024DA4F3B005AA2DC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EAF24DA4F3B005AA2DC /* DetailViewModel.swift */; };
 		46926EB224DA4FD1005AA2DC /* HeroDetailCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EB124DA4FD1005AA2DC /* HeroDetailCellModel.swift */; };
+		46926EB424DA5165005AA2DC /* HeroDetailCellModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EB324DA5165005AA2DC /* HeroDetailCellModelSpec.swift */; };
+		46926EB624DA52A6005AA2DC /* HeroDetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EB524DA52A6005AA2DC /* HeroDetailViewModelSpec.swift */; };
+		46926EB824DA591D005AA2DC /* DetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EB724DA591D005AA2DC /* DetailViewModelSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +134,9 @@
 		46926EAD24DA4EDB005AA2DC /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		46926EAF24DA4F3B005AA2DC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		46926EB124DA4FD1005AA2DC /* HeroDetailCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailCellModel.swift; sourceTree = "<group>"; };
+		46926EB324DA5165005AA2DC /* HeroDetailCellModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailCellModelSpec.swift; sourceTree = "<group>"; };
+		46926EB524DA52A6005AA2DC /* HeroDetailViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewModelSpec.swift; sourceTree = "<group>"; };
+		46926EB724DA591D005AA2DC /* DetailViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +262,9 @@
 				46926E9E24DA4A86005AA2DC /* HeroMainCellModelSpec.swift */,
 				46926EA024DA4ADC005AA2DC /* HeroStorageSpec.swift */,
 				46926EA224DA4B9F005AA2DC /* HeroViewModelSpec.swift */,
+				46926EB324DA5165005AA2DC /* HeroDetailCellModelSpec.swift */,
+				46926EB524DA52A6005AA2DC /* HeroDetailViewModelSpec.swift */,
+				46926EB724DA591D005AA2DC /* DetailViewModelSpec.swift */,
 			);
 			path = TixDota2Tests;
 			sourceTree = "<group>";
@@ -477,6 +486,9 @@
 			files = (
 				4618916B24D97FBD00519AF1 /* TixDota2Tests.swift in Sources */,
 				46926E9F24DA4A86005AA2DC /* HeroMainCellModelSpec.swift in Sources */,
+				46926EB624DA52A6005AA2DC /* HeroDetailViewModelSpec.swift in Sources */,
+				46926EB424DA5165005AA2DC /* HeroDetailCellModelSpec.swift in Sources */,
+				46926EB824DA591D005AA2DC /* DetailViewModelSpec.swift in Sources */,
 				46926EA124DA4ADC005AA2DC /* HeroStorageSpec.swift in Sources */,
 				46926EA324DA4B9F005AA2DC /* HeroViewModelSpec.swift in Sources */,
 			);

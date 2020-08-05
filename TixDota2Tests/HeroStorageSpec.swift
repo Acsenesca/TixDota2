@@ -34,15 +34,15 @@ class HeroStorageSpec: QuickSpec {
 				localizedName: "Invoker",
 				primaryAttr: .Int,
 				attackType: .Ranged,
-				roles: [""],
+				roles: ["Pusher", "Escape"],
 				img: "",
 				icon: "",
-				baseHealth: 10,
-				baseMana: 10,
-				baseArmor: 10,
-				baseAttackMin: 7,
-				baseAttackMax: 10,
-				moveSpeed: 10)
+				baseHealth: 200,
+				baseMana: 150,
+				baseArmor: -1,
+				baseAttackMin: 40,
+				baseAttackMax: 65,
+				moveSpeed: 300)
 		}
 		
 		afterEach {
