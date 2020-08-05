@@ -9,14 +9,6 @@
 import UIKit
 import ReactiveSwift
 
-class HeroDetailViewModel: ViewModel {
-	var hero: MutableProperty<Hero?> = MutableProperty(nil)
-	
-	init(hero: Hero?) {
-		self.hero.value = hero
-	}
-}
-
 class HeroDetailViewController: UIViewController {
 	typealias VM = HeroDetailViewModel
 	var viewModel: VM

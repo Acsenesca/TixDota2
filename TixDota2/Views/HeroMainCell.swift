@@ -11,15 +11,7 @@ import Foundation
 import Kingfisher
 import ReactiveSwift
 
-class HeroMainCellModel: ViewModel {
-	let hero: MutableProperty<Hero?> = MutableProperty(nil)
-
-	init(hero: Hero?) {
-		self.hero.value = hero
-	}
-}
-
-class HeroMainCell: UICollectionViewCell, ViewBinding {
+final class HeroMainCell: UICollectionViewCell, ViewBinding {
 
 	@IBOutlet weak var heroImageView: UIImageView!
 	@IBOutlet weak var heroTitleLabel: UILabel!

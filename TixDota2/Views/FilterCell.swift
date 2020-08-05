@@ -8,16 +8,7 @@
 
 import UIKit
 
-
-class FilterCellModel: ViewModel {
-	var state: String
-	
-	init(state: String) {
-		self.state = state
-	}
-}
-
-class FilterCell: UICollectionViewCell, ViewBinding {
+final class FilterCell: UICollectionViewCell, ViewBinding {
 	@IBOutlet weak var filterTitleLabel: UILabel!
 	@IBOutlet weak var containerView: UIView!
 	

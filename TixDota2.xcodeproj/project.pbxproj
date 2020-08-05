@@ -46,6 +46,13 @@
 		46926E9F24DA4A86005AA2DC /* HeroMainCellModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926E9E24DA4A86005AA2DC /* HeroMainCellModelSpec.swift */; };
 		46926EA124DA4ADC005AA2DC /* HeroStorageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EA024DA4ADC005AA2DC /* HeroStorageSpec.swift */; };
 		46926EA324DA4B9F005AA2DC /* HeroViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EA224DA4B9F005AA2DC /* HeroViewModelSpec.swift */; };
+		46926EA624DA4CFE005AA2DC /* HeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EA524DA4CFE005AA2DC /* HeroViewModel.swift */; };
+		46926EA824DA4DB1005AA2DC /* HeroDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EA724DA4DB1005AA2DC /* HeroDetailViewModel.swift */; };
+		46926EAA24DA4E13005AA2DC /* HeroMainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EA924DA4E13005AA2DC /* HeroMainCellModel.swift */; };
+		46926EAC24DA4E7F005AA2DC /* FilterCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EAB24DA4E7F005AA2DC /* FilterCellModel.swift */; };
+		46926EAE24DA4EDB005AA2DC /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EAD24DA4EDB005AA2DC /* FilterViewModel.swift */; };
+		46926EB024DA4F3B005AA2DC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EAF24DA4F3B005AA2DC /* DetailViewModel.swift */; };
+		46926EB224DA4FD1005AA2DC /* HeroDetailCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EB124DA4FD1005AA2DC /* HeroDetailCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +124,13 @@
 		46926E9E24DA4A86005AA2DC /* HeroMainCellModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroMainCellModelSpec.swift; sourceTree = "<group>"; };
 		46926EA024DA4ADC005AA2DC /* HeroStorageSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroStorageSpec.swift; sourceTree = "<group>"; };
 		46926EA224DA4B9F005AA2DC /* HeroViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModelSpec.swift; sourceTree = "<group>"; };
+		46926EA524DA4CFE005AA2DC /* HeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModel.swift; sourceTree = "<group>"; };
+		46926EA724DA4DB1005AA2DC /* HeroDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewModel.swift; sourceTree = "<group>"; };
+		46926EA924DA4E13005AA2DC /* HeroMainCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroMainCellModel.swift; sourceTree = "<group>"; };
+		46926EAB24DA4E7F005AA2DC /* FilterCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCellModel.swift; sourceTree = "<group>"; };
+		46926EAD24DA4EDB005AA2DC /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		46926EAF24DA4F3B005AA2DC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		46926EB124DA4FD1005AA2DC /* HeroDetailCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +179,7 @@
 		461514A424D193A90085EE57 /* TixDota2 */ = {
 			isa = PBXGroup;
 			children = (
+				46926EA424DA4CC1005AA2DC /* ViewModels */,
 				464F6A0824D8340000DEE186 /* Storage */,
 				464F69FE24D5227000DEE186 /* Models */,
 				461514E624D26BF30085EE57 /* Controllers */,
@@ -260,6 +275,20 @@
 				464F6A0B24D8342D00DEE186 /* HeroStorage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		46926EA424DA4CC1005AA2DC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				46926EA524DA4CFE005AA2DC /* HeroViewModel.swift */,
+				46926EA724DA4DB1005AA2DC /* HeroDetailViewModel.swift */,
+				46926EA924DA4E13005AA2DC /* HeroMainCellModel.swift */,
+				46926EAB24DA4E7F005AA2DC /* FilterCellModel.swift */,
+				46926EAD24DA4EDB005AA2DC /* FilterViewModel.swift */,
+				46926EAF24DA4F3B005AA2DC /* DetailViewModel.swift */,
+				46926EB124DA4FD1005AA2DC /* HeroDetailCellModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,16 +444,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				461514A624D193A90085EE57 /* AppDelegate.swift in Sources */,
+				46926EA624DA4CFE005AA2DC /* HeroViewModel.swift in Sources */,
 				464F6A0C24D8342D00DEE186 /* HeroStorage.swift in Sources */,
 				461514D524D1B1930085EE57 /* FactoryProtocol.swift in Sources */,
 				461514EB24D287A90085EE57 /* HeroMainCell.swift in Sources */,
+				46926EAC24DA4E7F005AA2DC /* FilterCellModel.swift in Sources */,
 				4661E6E424D3EA9C00C82059 /* FilterCell.swift in Sources */,
+				46926EB024DA4F3B005AA2DC /* DetailViewModel.swift in Sources */,
 				461514D324D1B1710085EE57 /* SectionedSourceProtocol.swift in Sources */,
 				464F6A0024D5229A00DEE186 /* Hero.swift in Sources */,
+				46926EB224DA4FD1005AA2DC /* HeroDetailCellModel.swift in Sources */,
+				46926EAA24DA4E13005AA2DC /* HeroMainCellModel.swift in Sources */,
 				464F6A0A24D8341000DEE186 /* CacheStorage.swift in Sources */,
+				46926EA824DA4DB1005AA2DC /* HeroDetailViewModel.swift in Sources */,
 				464F6A0424D6807C00DEE186 /* HeroDetailViewController.swift in Sources */,
 				461514CF24D1B0130085EE57 /* Helper.swift in Sources */,
 				461514CD24D1AF980085EE57 /* ViewModel.swift in Sources */,
+				46926EAE24DA4EDB005AA2DC /* FilterViewModel.swift in Sources */,
 				461514D124D1B14C0085EE57 /* CollectionViewBindingUtil.swift in Sources */,
 				4618915F24D9365200519AF1 /* HeroDetailCell.swift in Sources */,
 				461514E824D26C3B0085EE57 /* HeroViewController.swift in Sources */,

@@ -9,15 +9,7 @@
 import UIKit
 import ReactiveSwift
 
-class HeroDetailCellModel: ViewModel {
-	let hero: MutableProperty<Hero?> = MutableProperty(nil)
-
-	init(hero: Hero?) {
-		self.hero.value = hero
-	}
-}
-
-class HeroDetailCell: UICollectionViewCell, ViewBinding {
+final class HeroDetailCell: UICollectionViewCell, ViewBinding {
 	typealias VM = HeroDetailCellModel
 	var viewModel: VM?
 
