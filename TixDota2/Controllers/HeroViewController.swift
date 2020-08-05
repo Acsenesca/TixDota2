@@ -64,7 +64,7 @@ class HeroViewModel: ViewModel {
 		self.didSelectHandler(hero)
 	}
 	
-	fileprivate func requestFilteredHeroes(state: String, completionHandler: @escaping () -> Void) {
+	func requestFilteredHeroes(state: String, completionHandler: @escaping () -> Void) {
 		let storage = HeroStorage()
 		let listOfHeroes = storage.load(key: HeroStorageKey.listOfHeroes.rawValue)
 		

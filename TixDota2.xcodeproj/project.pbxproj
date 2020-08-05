@@ -43,6 +43,9 @@
 		4661E6EF24D4697600C82059 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4661E6EE24D4697600C82059 /* DetailView.xib */; };
 		46926E9924D9C46F005AA2DC /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46926E9824D9C46F005AA2DC /* Quick.framework */; };
 		46926E9B24D9C473005AA2DC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46926E9A24D9C473005AA2DC /* Nimble.framework */; };
+		46926E9F24DA4A86005AA2DC /* HeroMainCellModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926E9E24DA4A86005AA2DC /* HeroMainCellModelSpec.swift */; };
+		46926EA124DA4ADC005AA2DC /* HeroStorageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EA024DA4ADC005AA2DC /* HeroStorageSpec.swift */; };
+		46926EA324DA4B9F005AA2DC /* HeroViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46926EA224DA4B9F005AA2DC /* HeroViewModelSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		4661E6EE24D4697600C82059 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		46926E9824D9C46F005AA2DC /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		46926E9A24D9C473005AA2DC /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		46926E9E24DA4A86005AA2DC /* HeroMainCellModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroMainCellModelSpec.swift; sourceTree = "<group>"; };
+		46926EA024DA4ADC005AA2DC /* HeroStorageSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroStorageSpec.swift; sourceTree = "<group>"; };
+		46926EA224DA4B9F005AA2DC /* HeroViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModelSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,9 @@
 			children = (
 				4618916A24D97FBD00519AF1 /* TixDota2Tests.swift */,
 				4618916C24D97FBD00519AF1 /* Info.plist */,
+				46926E9E24DA4A86005AA2DC /* HeroMainCellModelSpec.swift */,
+				46926EA024DA4ADC005AA2DC /* HeroStorageSpec.swift */,
+				46926EA224DA4B9F005AA2DC /* HeroViewModelSpec.swift */,
 			);
 			path = TixDota2Tests;
 			sourceTree = "<group>";
@@ -431,6 +440,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4618916B24D97FBD00519AF1 /* TixDota2Tests.swift in Sources */,
+				46926E9F24DA4A86005AA2DC /* HeroMainCellModelSpec.swift in Sources */,
+				46926EA124DA4ADC005AA2DC /* HeroStorageSpec.swift in Sources */,
+				46926EA324DA4B9F005AA2DC /* HeroViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
