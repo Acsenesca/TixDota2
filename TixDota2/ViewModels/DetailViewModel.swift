@@ -24,9 +24,9 @@ class DetailViewModel: ViewModel {
 		guard let hero = self.hero.value else { return }
 
 		let filteredHeroes = listOfHeroes?.filter {
-			($0.roles == hero.roles) &&
-			($0.primaryAttr == hero.primaryAttr) &&
-			($0.id != hero.id)
+			let intersection = Set(hero.roles ?? []).intersection($0.roles ?? [])
+			
+			return (!intersection.isEmpty) && ($0.primaryAttr == hero.primaryAttr) && ($0.id != hero.id)
 		}
 		
 		let sortedHeroes = filteredHeroes?.sorted(by: {
@@ -44,8 +44,10 @@ class DetailViewModel: ViewModel {
 		if let count = sortedHeroes?.count {
 			if count == 1 {
 				self.similiarHeroes.value = sortedHeroes
-			} else if count > 0 && count <= 3 {
+			} else if count > 1 && count <= 3 {
 				self.similiarHeroes.value = Array(sortedHeroes?[0...count-1] ?? [])
+			} else {
+				self.similiarHeroes.value = Array(sortedHeroes?[0...2] ?? [])
 			}
 		}
 	}
